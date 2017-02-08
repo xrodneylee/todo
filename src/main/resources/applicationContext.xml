@@ -16,10 +16,15 @@
 			http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
 			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
+	<context:annotation-config />
+	
 	<bean id="properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="WEB-INF/system.properties" />
 	</bean>
 
 	<context:component-scan base-package="org.guanpu.todo.resources" />
 
+	<bean id="oauth2Service" class="org.guanpu.todo.service.impl.Oauth2ServiceImpl"/>
+		
+	
 </beans>

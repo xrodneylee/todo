@@ -34,8 +34,8 @@ Ext.define('login.view.Viewer', {
         action: 'showRegisterWindow'
     }, {
         text: '登入',
-        action : 'login',
-        formBind : true
+        action : 'login'
+//        formBind : true
     }]
 
 });

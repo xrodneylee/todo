@@ -26,31 +26,16 @@ Ext.define('login.controller.loginControl', {
 		});
 	},
 	onLogin : function(){
-		window.location.replace('/DailyNote/home/home.jsp');
-//		var values = Ext.getCmp("loginForm").getValues();
-//		var loginInfo = new Object();
-//		loginInfo.AUTH_ID = values["userid"];
-//		loginInfo.AUTH_PASSWORD = values["password"];
-//		loginInfo.sessionId = sessionId;
-//		loginInfo.ip = ip;
-//		Ext.Ajax.request({
-//		    url : '/eSOP/api/ajax/userCheck',
-//		    method : "POST",
-//		    params :{
-//				data : Ext.encode(loginInfo)
-//			},
-//		    success : function (response) {
-//		    	response = Ext.decode(response.responseText);
-//		    	if(response.result == "success"){
-//		    		window.location.replace(response.url);
-//		    	}else{
-//		    		Ext.Msg.alert('',response.msg);
-//		    	}
-//		    },
-//		    failure : function (response) {
-//		    	Ext.Msg.alert('','驗證失敗');
-//		    }
-//		});
+		Ext.Ajax.request({
+		    url : '/todo/rest/oauth2/userinfo',
+		    method : "GET",
+		    success : function (response) {
+		    	Ext.Msg.alert('','驗證成功');
+		    },
+		    failure : function (response) {
+		    	Ext.Msg.alert('','驗證失敗');
+		    }
+		});
 	},
 	showRegisterWindow : function(){
 		this.getRegisterWindow().show();
