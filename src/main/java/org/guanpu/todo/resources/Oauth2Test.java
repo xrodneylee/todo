@@ -1,7 +1,7 @@
-package org.guanpu.resources;
+package org.guanpu.todo.resources;
 
-import org.guanpu.service.Oauth2Service;
-import org.guanpu.service.impl.Oauth2ServiceImpl;
+import org.guanpu.todo.service.Oauth2Service;
+import org.guanpu.todo.service.impl.Oauth2ServiceImpl;
 
 public class Oauth2Test {
 

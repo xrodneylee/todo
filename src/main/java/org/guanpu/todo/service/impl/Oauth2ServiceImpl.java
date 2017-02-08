@@ -1,10 +1,10 @@
-package org.guanpu.service.impl;
+package org.guanpu.todo.service.impl;
 
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
-import org.guanpu.service.Oauth2Service;
+import org.guanpu.todo.service.Oauth2Service;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
