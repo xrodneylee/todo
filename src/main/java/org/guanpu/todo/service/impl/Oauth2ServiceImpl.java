@@ -49,7 +49,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	    		HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES).setDataStoreFactory(
 	    		        dataStoreFactory).build();
 	    // authorize
-	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize("mm");
+	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize("user");
 	  }
 	
 	public Oauth2 getOauth2Service() throws Exception {
