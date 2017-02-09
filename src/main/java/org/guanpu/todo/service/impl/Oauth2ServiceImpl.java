@@ -49,7 +49,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	    		HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES).setDataStoreFactory(
 	    		        dataStoreFactory).build();
 	    // authorize
-	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
+	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize("mm");
 	  }
 	
 	public Oauth2 getOauth2Service() throws Exception {
@@ -61,7 +61,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	
 	public void getUserinfo() throws Exception {
 		Oauth2 service = getOauth2Service();
-		System.out.println(service.userinfo().v2().me().toString());
+		System.out.println(service.userinfo().v2().me().get().execute().getEmail());
 	}
 
 }
