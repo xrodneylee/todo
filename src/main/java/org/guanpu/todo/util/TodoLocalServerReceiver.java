@@ -22,7 +22,7 @@ public class TodoLocalServerReceiver implements VerificationCodeReceiver {
 
 
 
-	private static final String CALLBACK_PATH = "/callback";
+	private static final String CALLBACK_PATH = "/Callback";
 
 	/** Server or {@code null} before {@link #getRedirectUri()}. */
 	private Server server;
@@ -218,7 +218,12 @@ public class TodoLocalServerReceiver implements VerificationCodeReceiver {
 			PrintWriter doc = response.getWriter();
 			doc.println("<html>");
 			doc.println("<head><title>OAuth 2.0 Authentication Token Received</title></head>");
-			doc.println("<body>");
+			doc.println("<script>");
+			doc.println("function myFunction(){");
+			doc.println("window.close()");
+			doc.println("}");
+			doc.println("</script>");
+			doc.println("<body onload=\"myFunction()\">");
 			doc.println("Received verification code. You may now close this window...");
 			doc.println("</body>");
 			doc.println("</HTML>");

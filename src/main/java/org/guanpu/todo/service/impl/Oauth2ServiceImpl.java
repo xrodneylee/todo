@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.guanpu.todo.service.Oauth2Service;
+import org.guanpu.todo.util.TodoLocalServerReceiver;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -52,7 +53,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	    		HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES).setDataStoreFactory(
 	    		        dataStoreFactory).build();
 	    // authorize
-	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize(uuid.toString());
+	    return new AuthorizationCodeInstalledApp(flow, new TodoLocalServerReceiver.Builder().setPort(8083).build()).authorize(uuid.toString());
     }
 	
 	public Oauth2 getOauth2Service() throws Exception {
