@@ -3,6 +3,7 @@ package org.guanpu.todo.service.impl;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import org.guanpu.todo.service.Oauth2Service;
 
@@ -29,6 +30,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	private static GoogleClientSecrets clientSecrets;
 	private static HttpTransport HTTP_TRANSPORT;
 	private static FileDataStoreFactory dataStoreFactory;
+	private static UUID uuid;
 
 	static {
 		try {
@@ -40,6 +42,7 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	}
 
 	private static Credential authorize() throws Exception {
+		uuid = UUID.randomUUID();
 	    // load client secrets
 	    clientSecrets = GoogleClientSecrets.load(JSON_FACTORY,
 	        new InputStreamReader(Oauth2ServiceImpl.class.getResourceAsStream("/client_secret.json")));
@@ -49,8 +52,8 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	    		HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES).setDataStoreFactory(
 	    		        dataStoreFactory).build();
 	    // authorize
-	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize("user");
-	  }
+	    return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8083).build()).authorize(uuid.toString());
+    }
 	
 	public Oauth2 getOauth2Service() throws Exception {
 		Credential credential = authorize();
@@ -59,9 +62,10 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 		return oauth2Service;
 	}
 	
-	public void getUserinfo() throws Exception {
+	public String getUserinfo() throws Exception {
 		Oauth2 service = getOauth2Service();
-		System.out.println(service.userinfo().v2().me().get().execute().getEmail());
+		return service.userinfo().v2().me().get().execute().getHd();
+//		System.out.println(service.userinfo().v2().me().get().execute().getEmail());
 	}
 
 }

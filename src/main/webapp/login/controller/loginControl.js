@@ -30,7 +30,11 @@ Ext.define('login.controller.loginControl', {
 		    url : '/todo/rest/oauth2/userinfo',
 		    method : "GET",
 		    success : function (response) {
-		    	Ext.Msg.alert('','驗證成功');
+		    	if(response.responseText == "infinitiessoft.com"){
+		    		Ext.Msg.alert('','驗證成功');
+		    	}else{
+		    		Ext.Msg.alert('','驗證失敗');
+		    	}
 		    },
 		    failure : function (response) {
 		    	Ext.Msg.alert('','驗證失敗');

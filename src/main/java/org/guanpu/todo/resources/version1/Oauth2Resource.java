@@ -17,11 +17,7 @@ public class Oauth2Resource {
 	
 	@GET
 	@Path("/userinfo")
-	public void getUserinfo(){
-		try {
-			oauth2Service.getUserinfo();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public String getUserinfo() throws Exception{
+		return oauth2Service.getUserinfo();
 	}
 }

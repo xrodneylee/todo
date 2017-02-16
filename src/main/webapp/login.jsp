@@ -6,7 +6,7 @@
 %>
 
 <html>
-<!--  
+ 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>todo kit</title>
@@ -22,7 +22,7 @@
 <body>
 
 </body>
--->
+<!-- 
 <head>
     <meta name="google-signin-scope" content="profile email https://www.googleapis.com/auth/calendar">
     <meta name="google-signin-client_id" content="22413843311-hl8i1742jli5b6h1oer2hkr07vg5hrui.apps.googleusercontent.com">
@@ -46,5 +46,5 @@
         console.log("ID Token: " + id_token);
       };
     </script>
-  </body>
+  </body>-->
 </html>
