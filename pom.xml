@@ -15,6 +15,7 @@
     <google.api.client.version>1.22.0</google.api.client.version>
     <google.oauth.client.jetty.version>1.22.0</google.oauth.client.jetty.version>
     <google.api.services.oauth2.version>v2-rev124-1.22.0</google.api.services.oauth2.version>
+    <google.calendar.version>v3-rev234-1.22.0</google.calendar.version>
     <jetty.version>9.4.0.v20161208</jetty.version>
     <jersey.version>2.22.1</jersey.version>
   </properties>
@@ -55,6 +56,12 @@
       <artifactId>google-oauth-client-jetty</artifactId>
       <version>${google.oauth.client.jetty.version}</version>
 	</dependency>
+
+	<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-calendar</artifactId>
+      <version>${google.calendar.version}</version>
+    </dependency>
 
 	<!-- JAX-RS -->
 	<dependency>

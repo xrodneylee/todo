@@ -66,7 +66,6 @@ public class Oauth2ServiceImpl implements Oauth2Service {
 	public String getUserinfo() throws Exception {
 		Oauth2 service = getOauth2Service();
 		return service.userinfo().v2().me().get().execute().getHd();
-//		System.out.println(service.userinfo().v2().me().get().execute().getEmail());
 	}
 
 }
