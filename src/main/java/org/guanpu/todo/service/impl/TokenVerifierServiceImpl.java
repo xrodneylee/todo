@@ -56,15 +56,15 @@ public class TokenVerifierServiceImpl implements TokenVerifierService{
 			  
 			    isValid = "true";
 			  
-//			  GoogleCredential credential = new GoogleCredential().setAccessToken(accesstoken);
-//			  Calendar calendar = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
-//		                .setApplicationName("guanpu-todo")
-//		                .build();
-//			  com.google.api.services.calendar.Calendar.Events.List list = calendar.events().list(email);
-//			  Events events = list.execute();
-//			  for(Event event : events.getItems()){
-//				  System.out.println(event.getSummary());
-//			  }
+			  GoogleCredential credential = new GoogleCredential().setAccessToken(accesstoken);
+			  Calendar calendar = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
+		                .setApplicationName("guanpu-todo")
+		                .build();
+			  com.google.api.services.calendar.Calendar.Events.List list = calendar.events().list(email);
+			  Events events = list.execute();
+			  for(Event event : events.getItems()){
+				  System.out.println(event.getSummary());
+			  }
 			} else {
 			    throw new Exception("Invalid ID token.");
 			}

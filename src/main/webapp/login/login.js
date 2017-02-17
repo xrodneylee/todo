@@ -1,6 +1,6 @@
 function verification(token, accessToken){
 	Ext.Ajax.request({
-	    url : '/todo/rest/oauth2/verification/'+token+'/'+accessToken,
+	    url : '/todo/rest/v1/oauth2/verification/'+token+'/'+accessToken,
 	    method : "GET",
 	    success : function (response) {
 	    	if(response.responseText == "true"){

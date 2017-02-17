@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/oauth2")
+@Path("oauth2")
 public class Oauth2Resource {
 	
 	@Autowired
@@ -21,12 +21,12 @@ public class Oauth2Resource {
 	private TokenVerifierService tokenVerifierService = new TokenVerifierServiceImpl();
 	
 	@GET
-	@Path("/userinfo")
+	@Path("userinfo")
 	public String getUserinfo() throws Exception{
 		return oauth2Service.getUserinfo();
 	}
 	@GET
-	@Path("/verification/{token}/{accesstoken}")
+	@Path("verification/{token}/{accesstoken}")
 	public String isValid(@PathParam("token") String token, @PathParam("accesstoken") String accesstoken) throws Exception{
 		return tokenVerifierService.isValid(token, accesstoken);
 	}
