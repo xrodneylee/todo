@@ -27,14 +27,10 @@ Ext.define('login.controller.loginControl', {
 	},
 	onLogin : function(){
 		Ext.Ajax.request({
-		    url : '/todo/rest/oauth2/userinfo',
+		    url : '/todo/rest/v1/oauth2/userinfo',
 		    method : "GET",
 		    success : function (response) {
-		    	if(response.responseText == "infinitiessoft.com"){
-		    		Ext.Msg.alert('','驗證成功');
-		    	}else{
-		    		Ext.Msg.alert('','驗證失敗');
-		    	}
+	    		window.location.replace('/todo/calendar/calendar.jsp?email='+response.responseText);
 		    },
 		    failure : function (response) {
 		    	Ext.Msg.alert('','驗證失敗');

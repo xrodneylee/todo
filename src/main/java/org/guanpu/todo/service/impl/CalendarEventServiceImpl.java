@@ -50,10 +50,11 @@ public class CalendarEventServiceImpl implements CalendarEventService {
 	}
 
 	public void insert(String eventStr) throws IOException {
-		Calendar service = getCalendarService(eventStr);
-		Event event = new Event();
-		event = event.getFactory().fromString(eventStr, Event.class);
-		service.events().insert(eventStr, event);
+		System.out.println("eventStr="+eventStr);
+//		Calendar service = getCalendarService(eventStr);
+//		Event event = new Event();
+//		event = event.getFactory().fromString(eventStr, Event.class);
+//		service.events().insert(eventStr, event);
 	}
 
 }

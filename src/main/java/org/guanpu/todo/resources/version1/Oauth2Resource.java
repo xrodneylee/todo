@@ -1,5 +1,6 @@
 package org.guanpu.todo.resources.version1;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -42,7 +43,7 @@ public class Oauth2Resource {
 	}
 	@POST
 	@Path("calendarInsert")
-	public void calendarInsert(@PathParam("eventStr") String eventStr) throws Exception{
+	public void calendarInsert(@FormParam("event") String eventStr) throws Exception{
 		calendarEventService.insert(eventStr);
 	}
 }
