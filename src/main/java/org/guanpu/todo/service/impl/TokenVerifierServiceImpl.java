@@ -34,14 +34,14 @@ public class TokenVerifierServiceImpl implements TokenVerifierService{
 		}
 	}
 	
-	public String isValid(String token, String accesstoken) {
+	public boolean isValid(String token, String accesstoken) {
 	
 		GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(HTTP_TRANSPORT, JSON_FACTORY)
 									.setAudience(Collections.singletonList("22413843311-hl8i1742jli5b6h1oer2hkr07vg5hrui.apps.googleusercontent.com"))
 									.build();
 
 		GoogleIdToken idToken;
-		String isValid = "false";
+		boolean isValid = false;
 		
 		try {
 			idToken = verifier.verify(token);
@@ -54,17 +54,8 @@ public class TokenVerifierServiceImpl implements TokenVerifierService{
 			    AccessTokenRepository accessTokens = AccessTokenRepository.getInstance();
 			    accessTokens.put(email, accesstoken);
 			  
-			    isValid = "true";
+			    isValid = true;
 			  
-			  GoogleCredential credential = new GoogleCredential().setAccessToken(accesstoken);
-			  Calendar calendar = new Calendar.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
-		                .setApplicationName("guanpu-todo")
-		                .build();
-			  com.google.api.services.calendar.Calendar.Events.List list = calendar.events().list(email);
-			  Events events = list.execute();
-			  for(Event event : events.getItems()){
-				  System.out.println(event.getSummary());
-			  }
 			} else {
 			    throw new Exception("Invalid ID token.");
 			}

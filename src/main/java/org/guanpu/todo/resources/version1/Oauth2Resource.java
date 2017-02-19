@@ -33,7 +33,7 @@ public class Oauth2Resource {
 	}
 	@GET
 	@Path("verification/{token}/{accesstoken}")
-	public String isValid(@PathParam("token") String token, @PathParam("accesstoken") String accesstoken) throws Exception{
+	public boolean isValid(@PathParam("token") String token, @PathParam("accesstoken") String accesstoken) throws Exception{
 		return tokenVerifierService.isValid(token, accesstoken);
 	}
 	@GET
