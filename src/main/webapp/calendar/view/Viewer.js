@@ -49,6 +49,9 @@ Ext.define('calendar.view.Viewer', {
 	],
 	
     buttons: [{
+        text: '檢視',
+        action : 'view'
+    },{
         text: '建立',
         action : 'create',
         formBind : true

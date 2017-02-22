@@ -6,10 +6,16 @@ Ext.define('calendar.controller.calendarControl', {
 
 	init : function() {
 		this.control({
+			'viewer button[action=view]' : {
+				click : this.onView
+			},
 			'viewer button[action=create]' : {
 				click : this.onCreate
 			}
 		});
+	},
+	onView : function(){
+		window.open('https://calendar.google.com');
 	},
 	onCreate : function(){
 		var event = new Object();
