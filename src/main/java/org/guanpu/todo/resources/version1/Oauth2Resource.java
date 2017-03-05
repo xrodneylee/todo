@@ -20,11 +20,11 @@ import org.springframework.stereotype.Component;
 public class Oauth2Resource {
 	
 	@Autowired
-	private Oauth2Service oauth2Service = new Oauth2ServiceImpl();
+	private Oauth2Service oauth2Service;
 	@Autowired
-	private TokenVerifierService tokenVerifierService = new TokenVerifierServiceImpl();
+	private TokenVerifierService tokenVerifierService;
 	@Autowired
-	private CalendarEventService calendarEventService = new CalendarEventServiceImpl();
+	private CalendarEventService calendarEventService;
 	
 	@GET
 	@Path("userinfo")
