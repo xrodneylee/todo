@@ -22,22 +22,58 @@ Ext.define('calendar.view.Viewer', {
 			fieldLabel : "活動名稱 ",
 			allowBlank : false
 		},
-        {
-            xtype: 'datefield',
-            id : "start",
-            fieldLabel: '起',
-            name: 'start',
-            format: 'Y-m-d',
-            allowBlank : false
-        },
-        {
-            xtype: 'datefield',
-            id : "end",
-            fieldLabel: '迄',
-            name: 'end',
-            format: 'Y-m-d',
-            allowBlank : false
-        }, 
+		{
+			xtype : 'fieldset',
+			layout : 'hbox',
+			border : false,
+			style: 'padding-left: 0px;',
+			items : [
+				{
+				    xtype: 'datefield',
+				    id : "start",
+				    fieldLabel: '起',
+				    name: 'start',
+				    format: 'Y-m-d',
+				    allowBlank : false
+				},
+				{
+				    xtype : 'timefield',
+				    id : 'in',
+				    format : 'H:i:s',
+				    minValue : '00:00',
+		            maxValue : '23:59',
+				    increment : 30,
+				    width : 175,
+				    allowBlank : false
+				}
+			],
+		},
+		{
+			xtype : 'fieldset',
+			layout : 'hbox',
+			border : false,
+			style : 'padding-left: 0px;',
+			items : [
+				{
+		            xtype: 'datefield',
+		            id : "end",
+		            fieldLabel: '迄',
+		            name: 'end',
+		            format: 'Y-m-d',
+		            allowBlank : false
+		        },
+		        {
+		            xtype : 'timefield',
+		            id : 'out',
+		            format : 'H:i:s',
+		            minValue : '00:00',
+		            maxValue : '23:59',
+		            increment : 30,
+		            width : 175,
+		            allowBlank : false
+		        }
+			],
+		},
 		{
 			xtype     : 'textareafield',
 			id : "description",

@@ -21,8 +21,8 @@ Ext.define('calendar.controller.calendarControl', {
 		var event = new Object();
 		event.summary = Ext.getCmp('summary').getValue();
 		event.description = Ext.getCmp('description').getValue();
-		event.start = Ext.getCmp('start').getValue();
-		event.end = Ext.getCmp('end').getValue();
+		event.start = Ext.getCmp('start').getRawValue()+'T'+Ext.getCmp('in').getRawValue()+'+08:00';
+		event.end = Ext.getCmp('end').getRawValue()+'T'+Ext.getCmp('out').getRawValue()+'+08:00';
 		event.email = email;
 		Ext.Ajax.request({
 		    url : '/todo/rest/v1/oauth2/calendarInsert',
